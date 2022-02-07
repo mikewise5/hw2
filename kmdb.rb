@@ -71,6 +71,7 @@
 # TODO!
 Movie.destroy_all
 Person.destroy_all
+Actor.destroy_all
 Role.destroy_all
 
 # Generate models and tables, according to the domain model
@@ -108,16 +109,92 @@ new_movie.save
 
 puts "There are now #{Movie.all.count} movies."
 
+##Creates people
+
+new_person = Person.new
+new_person.name = "Christian Bale"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Michael Caine"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Liam Neeson"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Katie Holmes"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Gary Oldman"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Heath Ledger"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Aaron Eckhart"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Maggie Gyllenhaal"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Tom Hardy"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Joseph Gordon-Levitt"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Anne Hathaway"
+new_person.save
+
+new_person = Person.new
+new_person.name = "Christopher Nolan"
+new_person.save
+
+##puts "There are now #{Person.all.count} people."
+
+##Creates people IDs
+bale = Role.where({ role: "Batman Begins"})[0]
+puts begins.id
+begins_id = begins.id
+
+
+##Creates IDs for movies
+
 begins = Movie.where({ title: "Batman Begins"})[0]
 puts begins.id
 begins_id = begins.id
 
-person = Person.new
-person.name= "Christopher Nolan"
-person.movie_id = begins.id
-person.save
+dark_knight = Movie.where({ title: "The Dark Knight"})[0]
+puts dark_knight.id
+dark_knight_id = dark_knight.id
 
-puts "There are now #{Person.all.count} people."
+rises = Movie.where({ title: "The Dark Knight Rises"})[0]
+puts rises.id
+rises_id = rises.id
+
+role = Role.new
+role.movie_id = begins.id
+role.person_id = ""
+role.character_name= "Bruce Wayne"
+role.save
+
+
+
+#actor = Actor.new
+#actor.name= "Michael Caine"
+#actor.movie_id = begins.id
+#actor.save
+
+puts "There are now #{Actor.all.count} actors."
 
 # Prints a header for the movies output
 puts "Movies"
