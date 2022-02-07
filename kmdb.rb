@@ -69,13 +69,55 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
+Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
 
 # Generate models and tables, according to the domain model
 # TODO!
+##rails generate model Movies
+##rails generate model People
+##rails generate model Roles
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+values = { title: "Batman Begins", 
+            year_released: "2005", 
+            rated: "PG-13",
+            person_id: "1"
+        }
+
+batman_begins = Movie.new(values)
+batman_begins.save
+
+new_movie = Movie.new
+new_movie.title = "The Dark Knight"
+new_movie.year_released = "2008"
+new_movie.rated = "PG-13"
+new_movie.person_id = "1"
+new_movie.save
+
+new_movie = Movie.new
+new_movie.title = "The Dark Knight Rises"
+new_movie.year_released = "2012"
+new_movie.rated = "PG-13"
+new_movie.person_id = "1"
+new_movie.save
+
+puts "There are now #{Movie.all.count} movies."
+
+begins = Movie.where({ title: "Batman Begins"})[0]
+puts begins.id
+begins_id = begins.id
+
+person = Person.new
+person.name= "Christopher Nolan"
+person.movie_id = begins.id
+person.save
+
+puts "There are now #{Person.all.count} people."
 
 # Prints a header for the movies output
 puts "Movies"
