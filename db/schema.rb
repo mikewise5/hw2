@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_040953) do
     t.string "title"
     t.integer "year_released"
     t.string "rated"
-    t.string "person_id"
+    t.integer "person_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

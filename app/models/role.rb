@@ -1,3 +1,3 @@
 class Role < ApplicationRecord
-    has_many :actors
+    has_many :people 
 end
